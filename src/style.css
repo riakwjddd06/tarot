@@ -359,3 +359,269 @@ main {
     font-size: 17px;
   }
 }
+
+
+
+/* ==================================
+   4단계: 질문 입력 화면
+================================== */
+
+/* 질문 폼 전체 */
+
+.question-form {
+  width: 100%;
+  max-width: 680px;
+  margin: 48px auto 0;
+  padding: 42px;
+  background: rgba(39, 33, 55, 0.65);
+  border: 1px solid rgba(197, 166, 110, 0.35);
+  border-radius: 20px;
+  text-align: left;
+}
+
+/* 필드 기본 설정 */
+
+.form-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 35px;
+  min-width: 0;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 17px;
+  color: #f2e9d8;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.required {
+  color: #d6b778;
+  margin-left: 3px;
+}
+
+/* 고민 분야 선택 */
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.category-option {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 65px;
+  padding: 12px;
+  border: 1px solid #51455f;
+  border-radius: 12px;
+  background: rgba(25, 21, 36, 0.65);
+  color: #c7bbd3;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.category-option:hover {
+  border-color: #bfa270;
+  background: rgba(65, 53, 78, 0.65);
+}
+
+.category-option.selected {
+  border-color: #d3b77e;
+  background: rgba(197, 166, 110, 0.16);
+  color: #f0d49d;
+}
+
+.category-option input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.category-option:focus-within {
+  outline: 2px solid #e2c892;
+  outline-offset: 3px;
+}
+
+/* 상세 질문 입력 */
+
+.form-group {
+  margin-top: 12px;
+}
+
+#detail-question {
+  display: block;
+  width: 100%;
+  min-height: 175px;
+  padding: 20px;
+  border: 1px solid #51455f;
+  border-radius: 12px;
+  background: rgba(18, 16, 29, 0.8);
+  color: #f2e9d8;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.9;
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+
+#detail-question::placeholder {
+  color: #91869f;
+}
+
+#detail-question:focus {
+  outline: none;
+  border-color: #d3b77e;
+  box-shadow: 0 0 0 2px rgba(211, 183, 126, 0.1);
+}
+
+/* 글자 수 */
+
+.question-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.question-meta p {
+  margin: 0;
+  color: #aaa0b8;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+#character-count {
+  flex-shrink: 0;
+  color: #c2ad86;
+  font-size: 12px;
+}
+
+/* 오류 메시지 */
+
+.error-message {
+  margin: 10px 0 0;
+  color: #ffadad;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.error-message:empty {
+  display: none;
+}
+
+/* 이전 및 다음 버튼 */
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-top: 35px;
+}
+
+.form-actions .primary-button,
+.form-actions .secondary-button {
+  margin-top: 0;
+}
+
+/* 카드 선택 임시 화면 */
+
+.question-summary {
+  margin: 28px 0;
+  padding: 22px;
+  border-radius: 12px;
+  background: rgba(17, 15, 27, 0.65);
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.question-summary p {
+  margin: 5px 0 15px;
+  color: #eee2cf;
+  line-height: 1.9;
+  white-space: pre-wrap;
+}
+
+.question-summary .summary-label {
+  color: #d4b87d;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.question-summary .summary-question {
+  margin-bottom: 0;
+}
+
+.coming-soon {
+  color: #aa9db4;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* ==================================
+   모바일 화면
+================================== */
+
+@media (max-width: 600px) {
+
+  .question-form {
+    margin-top: 35px;
+    padding: 22px 16px;
+    border-radius: 15px;
+  }
+
+  .category-grid {
+    gap: 9px;
+  }
+
+  .category-option {
+    min-height: 70px;
+    padding: 10px 6px;
+    font-size: 12px;
+  }
+
+  .field-label {
+    font-size: 15px;
+  }
+
+  #detail-question {
+    min-height: 170px;
+    padding: 15px;
+    font-size: 13px;
+  }
+
+  .question-meta {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  #character-count {
+    align-self: flex-end;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+
+  .question-summary {
+    padding: 16px;
+  }
+}
