@@ -625,3 +625,368 @@ main {
     padding: 16px;
   }
 }
+
+
+/* ==================================
+   6단계: 타로 카드 선택 화면
+================================== */
+
+/* 카드 선택 페이지 */
+
+.cards-page {
+  max-width: 1150px;
+}
+
+.cards-question-summary {
+  max-width: 680px;
+  margin: 35px auto 48px;
+  padding: 22px 26px;
+  border: 1px solid rgba(197, 166, 110, 0.25);
+  border-radius: 14px;
+  background: rgba(25, 21, 37, 0.7);
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.cards-question-summary .summary-label {
+  display: block;
+  margin: 0 0 7px;
+  color: #d5b879;
+  font-size: 12px;
+}
+
+.cards-question-summary strong {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.cards-question-summary p {
+  margin: 0;
+  color: #d2c7dc;
+  font-size: 14px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.cards-section-title {
+  margin: 30px 0;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+/* 과거·현재·미래 영역 */
+
+.selected-slots {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  max-width: 640px;
+  margin: 0 auto 38px;
+}
+
+.selected-slot {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+.slot-face {
+  display: flex;
+  width: 100%;
+  max-width: 170px;
+  aspect-ratio: 3 / 5;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px;
+  border: 1px solid #655274;
+  border-radius: 12px;
+  background: linear-gradient(
+    145deg,
+    #30253e,
+    #191524
+  );
+}
+
+.slot-face.is-revealed {
+  border: 2px solid #d3b77e;
+  background: linear-gradient(
+    160deg,
+    #3e3047,
+    #241c31
+  );
+  box-shadow: 0 0 24px rgba(211, 183, 126, 0.12);
+}
+
+.slot-card-number {
+  color: #d3b77e;
+  font-size: 14px;
+}
+
+.slot-card-symbol {
+  color: #e7c88f;
+  font-size: 34px;
+}
+
+.slot-face strong {
+  font-size: 16px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.slot-face small {
+  color: #bea9d0;
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+
+.slot-empty-icon {
+  font-size: 33px;
+  color: #776887;
+}
+
+.slot-empty-text {
+  color: #a99ab9;
+  font-size: 12px;
+}
+
+.slot-position {
+  color: #f0dec0;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.slot-position-en {
+  color: #bfa16e;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+/* 선택 진행 상태 */
+
+.selection-progress {
+  margin: 10px 0;
+  color: #c1b2ce;
+  font-size: 15px;
+}
+
+.selection-progress strong {
+  color: #e1c48a;
+  font-size: 19px;
+}
+
+.selection-guide {
+  margin: 0 0 30px;
+  color: #d4bd95;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* 카드 덱: PC에서 11장씩 2줄 */
+
+.tarot-deck {
+  display: grid;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.deck-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 5;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid #9d8050;
+  border-radius: 8px;
+  background: #151426;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    opacity 0.2s;
+}
+
+.deck-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.deck-card:not(:disabled):hover {
+  transform: translateY(-7px);
+  border-color: #e6c890;
+  box-shadow: 0 8px 24px rgba(213, 182, 120, 0.24);
+}
+
+.deck-card:disabled {
+  cursor: default;
+}
+
+.deck-card.is-selected {
+  opacity: 0.45;
+  border-color: #e4c88d;
+}
+
+.deck-selected-mark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffe4aa;
+  background: rgba(12, 9, 24, 0.55);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* 카드 선택 버튼 영역 */
+
+.cards-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 35px 0 0;
+}
+
+.cards-actions .secondary-button {
+  margin: 0;
+}
+
+.cards-actions button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* 선택 완료 안내 */
+
+.reading-ready-panel {
+  max-width: 650px;
+  margin: 50px auto 0;
+  padding: 35px;
+  border: 1px solid rgba(214, 182, 122, 0.5);
+  border-radius: 18px;
+  background: rgba(50, 38, 64, 0.65);
+}
+
+.ready-symbol {
+  font-size: 40px;
+  color: #e1c48a;
+}
+
+.reading-ready-panel h2 {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.reading-ready-panel p {
+  color: #c7bbd2;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.reading-ready-panel .primary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 태블릿 화면 */
+
+@media (max-width: 900px) {
+  .tarot-deck {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+  }
+}
+
+/* 모바일 화면 */
+
+@media (max-width: 600px) {
+  .cards-page {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .cards-question-summary {
+    padding: 18px;
+  }
+
+  .selected-slots {
+    gap: 9px;
+  }
+
+  .slot-face {
+    padding: 6px;
+    border-radius: 8px;
+  }
+
+  .slot-card-number {
+    font-size: 11px;
+  }
+
+  .slot-card-symbol {
+    font-size: 23px;
+  }
+
+  .slot-face strong {
+    font-size: 12px;
+  }
+
+  .slot-face small {
+    font-size: 8px;
+    letter-spacing: 0;
+  }
+
+  .slot-position {
+    font-size: 14px;
+  }
+
+  .slot-position-en {
+    font-size: 9px;
+  }
+
+  .slot-empty-icon {
+    font-size: 24px;
+  }
+
+  .slot-empty-text {
+    font-size: 10px;
+  }
+
+  .tarot-deck {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .deck-card {
+    border-radius: 6px;
+  }
+
+  .cards-actions {
+    flex-direction: column;
+  }
+
+  .cards-actions button {
+    width: 100%;
+  }
+
+  .reading-ready-panel {
+    padding: 25px 18px;
+  }
+
+  .reading-ready-panel .primary-button {
+    width: 100%;
+    padding: 14px 12px;
+    font-size: 12px;
+  }
+}
