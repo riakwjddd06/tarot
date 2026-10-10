@@ -990,3 +990,674 @@ main {
     font-size: 12px;
   }
 }
+
+
+
+/* ==================================
+   7-7. AI 타로 리딩 결과 페이지
+================================== */
+
+.result-page {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 65px 24px 100px;
+  text-align: center;
+}
+
+.result-page h1 {
+  color: #f2e8dc;
+  font-size: clamp(30px, 5vw, 48px);
+  letter-spacing: -1px;
+  margin: 20px 0;
+}
+
+/* 사용자 질문 */
+
+.result-question-box {
+  max-width: 720px;
+  margin: 42px auto 55px;
+  padding: 28px 32px;
+  background: rgba(37, 29, 50, 0.85);
+  border: 1px solid rgba(205, 170, 109, 0.35);
+  border-radius: 16px;
+  text-align: left;
+}
+
+.result-question-box .summary-label {
+  display: block;
+  color: #d6b479;
+  font-size: 13px;
+  margin-bottom: 9px;
+}
+
+.result-question-box strong {
+  display: block;
+  color: #f2e8dc;
+  margin-bottom: 22px;
+}
+
+.result-question-box p {
+  color: #d2c4dc;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+/* 선택한 타로 카드 */
+
+.result-section-title {
+  color: #f2e8dc;
+  font-size: 22px;
+  margin-bottom: 35px;
+}
+
+.result-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+
+.result-tarot-card {
+  min-width: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+
+.result-card-picture {
+  width: 100%;
+  max-width: 190px;
+  aspect-ratio: 3 / 5;
+  margin: 0 auto 16px;
+  border: 2px solid #cfad72;
+  border-radius: 11px;
+  overflow: hidden;
+  background: #171326;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+
+.result-card-picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+}
+
+
+
+
+.result-position {
+  color: #f1e7db;
+  font-weight: 700;
+  margin: 8px 0 4px;
+}
+
+.result-position-en {
+  color: #d4b177;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.result-tarot-card h3 {
+  color: #f2e8dc;
+  font-size: 17px;
+  margin: 14px 0 5px;
+}
+
+.result-tarot-card small {
+  color: #b9a9c7;
+  font-size: 12px;
+}
+
+/* 구분 장식 */
+
+.result-divider {
+  margin: 65px 0 45px;
+  color: #d4b177;
+  font-size: 22px;
+  letter-spacing: 15px;
+}
+
+/* AI 해석 카드 */
+
+.result-readings {
+  max-width: 790px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.result-reading-section {
+  text-align: left;
+  padding: 34px 38px;
+  border: 1px solid rgba(205, 170, 109, 0.38);
+  border-radius: 17px;
+  background: linear-gradient(
+    145deg,
+    rgba(47, 37, 63, 0.94),
+    rgba(32, 25, 45, 0.97)
+  );
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
+}
+
+.result-reading-number {
+  color: #d5b579;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin: 0 0 12px;
+}
+
+.result-reading-section h2 {
+  color: #f2e8dc;
+  font-size: 23px;
+  margin: 0 0 23px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(205, 170, 109, 0.2);
+}
+
+.result-reading-text {
+  color: #d5c8dc;
+  font-size: 15px;
+  line-height: 2.1;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 0;
+}
+
+/* 주의 문구 */
+
+.result-disclaimer {
+  max-width: 700px;
+  margin: 45px auto 35px;
+  color: #a99bb7;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+/* 하단 버튼 */
+
+.result-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+/* 모바일 대응 */
+
+@media (max-width: 600px) {
+  .result-page {
+    padding: 45px 16px 75px;
+  }
+
+  .result-question-box {
+    padding: 22px 18px;
+    margin: 32px auto 45px;
+  }
+
+  .result-card-grid {
+    gap: 10px;
+  }
+
+  .result-card-picture {
+    border-radius: 7px;
+  }
+
+  .result-tarot-card h3 {
+    font-size: 13px;
+  }
+
+  .result-position {
+    font-size: 13px;
+  }
+
+  .result-position-en {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .result-divider {
+    margin: 45px 0 35px;
+  }
+
+  .result-reading-section {
+    padding: 25px 20px;
+  }
+
+  .result-reading-section h2 {
+    font-size: 19px;
+  }
+
+  .result-reading-text {
+    font-size: 14px;
+    line-height: 1.95;
+  }
+
+  .result-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .result-actions button {
+    width: 100%;
+  }
+}
+
+
+/* ==================================
+   8-2-4. 선택 카드 크기 오류 수정
+   ================================== */
+
+.selected-slot .selected-card-remove {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  overflow: hidden;
+  cursor: pointer;
+  appearance: none;
+  box-sizing: border-box;
+}
+
+.selected-slot .selected-card-remove img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: fill;
+}
+
+.selected-slot .selected-card-remove:hover {
+  filter: brightness(1.12);
+}
+
+.selected-slot .selected-card-remove:focus-visible {
+  outline: 2px solid #d4b16c;
+  outline-offset: 3px;
+}
+
+
+/* ==========================================
+   9-2-3. 심층 리딩 카드 세로 배치
+   ========================================== */
+
+.deep-card-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 760px;
+  margin: 32px auto 40px;
+}
+
+.deep-card-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px;
+  border: 1px solid rgba(200, 170, 115, 0.25);
+  border-radius: 16px;
+  background: rgba(38, 29, 55, 0.65);
+}
+
+.deep-card-placeholder {
+  width: 110px;
+  aspect-ratio: 971 / 1619;
+  flex-shrink: 0;
+  border: 1px solid #b99b68;
+  border-radius: 10px;
+  background: #30253d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #d5b67c;
+}
+
+.deep-card-placeholder span {
+  font-size: 30px;
+}
+
+.deep-card-placeholder small {
+  font-size: 12px;
+  color: #bfb0c9;
+}
+
+.deep-card-info {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.deep-card-number {
+  display: block;
+  margin-bottom: 10px;
+  color: #d5b67c;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.deep-card-info h3 {
+  margin: 0 0 12px;
+  color: #f5ebdb;
+  font-size: 21px;
+}
+
+.deep-card-info p {
+  margin: 0;
+  color: #c9bdcf;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.deep-question-section {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto 30px;
+  text-align: left;
+}
+
+.deep-question-section label {
+  display: block;
+  margin-bottom: 12px;
+  color: #f5ebdb;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.deep-question-section textarea {
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  border: 1px solid rgba(200, 170, 115, 0.45);
+  border-radius: 12px;
+  background: rgba(38, 29, 55, 0.85);
+  color: #f5ebdb;
+  font: inherit;
+  resize: vertical;
+}
+
+.deep-question-section textarea:focus {
+  outline: 2px solid #d5b67c;
+  outline-offset: 2px;
+}
+
+.deep-question-help {
+  margin-top: 10px;
+  color: #bfb0c9;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* 모바일 화면 */
+@media (max-width: 480px) {
+  .deep-card-row {
+    gap: 14px;
+    padding: 14px;
+  }
+
+  .deep-card-placeholder {
+    width: 82px;
+  }
+
+  .deep-card-info h3 {
+    font-size: 17px;
+  }
+
+  .deep-card-info p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .deep-card-number {
+    font-size: 11px;
+  }
+}
+
+
+/* ==========================================
+   9-2-4. 심층 리딩 하단 버튼 크기 수정
+   ========================================== */
+
+.deep-reading-page .cards-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.deep-reading-page .cards-actions .secondary-button {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 0;
+  padding: 14px 24px;
+}
+
+.deep-reading-page .cards-actions .primary-button {
+  flex: 0 1 auto;
+  width: auto;
+  min-width: 0;
+  padding: 14px 24px;
+}
+
+@media (max-width: 480px) {
+  .deep-reading-page .cards-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .deep-reading-page .cards-actions button {
+    width: 100%;
+    max-width: 340px;
+  }
+}
+
+
+/* ==========================================
+   9-2-4-2. 심층 리딩 화면 간격 및 버튼 정렬
+   ========================================== */
+
+/* 19장 카드 목록과 추가 질문 사이 여백 */
+.deep-reading-page .deep-tarot-deck {
+  margin-bottom: 48px;
+}
+
+/* 두 버튼을 같은 크기로 나란히 정렬 */
+.deep-reading-page .cards-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 760px;
+  margin: 28px auto 0;
+}
+
+
+.deep-reading-page .cards-actions .secondary-button,
+.deep-reading-page .cards-actions .primary-button {
+  flex: 1 1 0;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+
+  /* 두 버튼의 크기 및 위치 통일 */
+  height: 58px;
+  min-height: 58px;
+  margin: 0;
+  padding: 0 18px;
+
+  box-sizing: border-box;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+/* 작은 모바일에서는 버튼을 위아래로 배치 */
+@media (max-width: 600px) {
+  .deep-reading-page .cards-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .deep-reading-page .cards-actions .secondary-button,
+  .deep-reading-page .cards-actions .primary-button {
+    flex: none;
+    width: 100%;
+    max-width: none;
+    min-height: 54px;
+  }
+
+  .deep-reading-page .deep-tarot-deck {
+    margin-bottom: 32px;
+  }
+}
+
+
+
+/* ==========================================
+   9-2-4-2. 심층 리딩 카드 선택 표시
+   ========================================== */
+
+.deep-card-row .deep-selected-remove {
+  position: relative;
+  display: block;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  cursor: pointer;
+  appearance: none;
+  box-sizing: border-box;
+}
+
+.deep-card-row .deep-selected-remove img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.deep-card-row .deep-selected-remove:hover {
+  filter: brightness(1.12);
+}
+
+.deep-card-row .deep-selected-remove:focus-visible {
+  outline: 2px solid #d5b67c;
+  outline-offset: 3px;
+}
+
+
+/* ==========================================
+   9-2-5-3-5. 심층 AI 응답 상태 안내
+   ========================================== */
+
+.deep-ai-feedback {
+  width: 100%;
+  max-width: 760px;
+  margin: 28px auto 0;
+  text-align: center;
+}
+
+.deep-ai-feedback p {
+  margin: 0 0 18px;
+  color: #d5c8dc;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.deep-ai-feedback .secondary-button {
+  margin-top: 8px;
+}
+
+
+
+/* ==========================================
+   1차 카드 개별 취소 안내 문구
+   ========================================== */
+
+.card-reselect-help {
+  margin: 18px auto 0;
+  color: #b9a9c7;
+  font-size: 13px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .card-reselect-help {
+    font-size: 12px;
+    padding: 0 12px;
+  }
+}
+
+
+
+/* ==========================================
+   9-2-5-3-6. 심층 AI 결과 화면
+   ========================================== */
+
+.deep-result-page .deep-extra-label {
+  margin-top: 25px;
+}
+
+.deep-result-page .result-card-grid {
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.deep-result-page .result-actions .primary-button,
+.deep-result-page .result-actions .secondary-button {
+  margin-top: 0;
+}
+
+.deep-result-page .result-actions {
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .deep-result-page .result-card-grid {
+    gap: 10px;
+  }
+
+  .deep-result-page .result-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .deep-result-page .result-actions button {
+    width: 100%;
+  }
+}

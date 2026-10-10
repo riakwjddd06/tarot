@@ -27,3 +27,15 @@ dist-ssr
 .env
 .env.*
 !.env.example
+
+
+# Python backend
+backend/.venv/
+__pycache__/
+*.pyc
+
+# API secrets
+.env
+.env.*
+!.env.example
+backend/.env

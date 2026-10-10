@@ -250,6 +250,16 @@ export const minorArcana = Object.entries(minorData).flatMap(
 // 3. 전체 타로 카드 78장
 // ===================================
 
+
+ // =====================================
+ // 메이저 아르카나 22장 앞면 이미지 연결
+ // =====================================
+
+for (const card of majorArcana) {
+  card.image = `/cards/major/${card.id}.jpg`
+}
+
+
 export const tarotCards = [
   ...majorArcana,
   ...minorArcana,
