@@ -163,6 +163,11 @@ function getSelectedCardCount() {
 // 7-6. AI 리딩 요청 상태
 // ==================================
 
+// 서버에 연결하지 못했을 때 안내 문구
+// 개발 중에는 Flask 서버 실행 여부를, 배포 환경에서는 네트워크 확인을 안내합니다.
+const CONNECTION_ERROR_MESSAGE = import.meta.env.DEV
+  ? 'AI 서버에 연결할 수 없습니다. Flask 서버가 실행 중인지 확인해 주세요.'
+  : 'AI 서버에 연결할 수 없습니다. 인터넷 연결을 확인하고 잠시 후 다시 시도해 주세요.'
 
 const AI_API_URL = import.meta.env.DEV
   ? 'http://127.0.0.1:5001/api/reading'
@@ -996,16 +1001,7 @@ function createResultPage() {
           return `
             <div class="result-tarot-card">
 
-              <div class="result-card-picture">
-
-                <img
-                  src="${escapeHTML(card.image || tarotCardBackImage)}"
-                  alt="${escapeHTML(card.name)} 타로 카드"
-                  loading="lazy"
-                  onerror="this.onerror=null;this.src='/cards/back/tarot-back.jpg';"
-                >
-
-              </div>
+              ${createFlipCardPicture(card)}
 
               <p class="result-position">
                 ${position.name}
@@ -1415,13 +1411,7 @@ function createDeepResultPage() {
         ${selectedDeepCards.map(({ card, position }) => `
           <div class="result-tarot-card">
 
-            <div class="result-card-picture">
-              <img
-                src="${escapeHTML(card.image || tarotCardBackImage)}"
-                alt="${escapeHTML(card.name)} 타로 카드"
-                loading="lazy"
-              />
-            </div>
+            ${createFlipCardPicture(card)}
 
             <p class="result-position">
               ${position.title}
@@ -1641,6 +1631,8 @@ function renderPage() {
 
   document.title =
     `${pageNames[currentPage]} | 타로 — AI 타로 리딩 웹서비스`
+
+  startCardFlips()
 }
 
 // ==================================
@@ -2085,7 +2077,7 @@ try {
         'AI 응답 시간이 60초를 초과했습니다. 잠시 후 다시 시도해 주세요.'
     }  else if (error instanceof TypeError) {
        aiReadingError =
-        'AI 서버에 연결할 수 없습니다. Flask 서버가 실행 중인지 확인해 주세요.'
+        CONNECTION_ERROR_MESSAGE
     }  else {
        aiReadingError =
         error.message || 'AI 요청 중 오류가 발생했습니다.'
@@ -2285,9 +2277,9 @@ async function startDeepAIReading() {
     if (error.name === 'AbortError') {
       deepAIError =
         'AI 응답 시간이 60초를 초과했습니다. 잠시 후 다시 시도해 주세요.'
-    } else if (error instanceof TypeError) {
-      deepAIError =
-        'AI 서버에 연결할 수 없습니다. Flask 서버가 실행 중인지 확인해 주세요.'
+    }  else if (error instanceof TypeError) {
+       aiReadingError =
+        CONNECTION_ERROR_MESSAGE
     } else {
       deepAIError =
         error.message || '심층 AI 리딩 요청 중 문제가 발생했습니다.'
@@ -2350,3 +2342,87 @@ loadDeepAIResult()
 window.addEventListener('hashchange', updatePageFromHash)
 
 updatePageFromHash()
+
+
+// ==================================
+// 결과 카드 뒤집기 (보너스: 마이크로 인터랙션)
+// ==================================
+
+// 결과 화면의 카드는 뒷면으로 시작해 순서대로 앞면으로 뒤집힙니다.
+// 카드를 클릭(또는 Enter/Space)하면 다시 뒤집어 볼 수 있습니다.
+function createFlipCardPicture(card) {
+  const frontImage = escapeHTML(card.image || tarotCardBackImage)
+  const name = escapeHTML(card.name)
+
+  return `
+    <div
+      class="result-card-picture flip-card"
+      role="button"
+      tabindex="0"
+      aria-label="${name} 카드 뒤집기"
+    >
+      <div class="flip-inner">
+        <img
+          class="flip-face flip-face-front"
+          src="${frontImage}"
+          alt="${name} 타로 카드"
+          loading="lazy"
+          onerror="this.onerror=null;this.src='/cards/back/tarot-back.jpg';"
+        />
+        <img
+          class="flip-face flip-face-back"
+          src="${tarotCardBackImage}"
+          alt=""
+          aria-hidden="true"
+        />
+      </div>
+    </div>
+  `
+}
+
+function startCardFlips() {
+  const cards = document.querySelectorAll('.flip-inner')
+
+  if (!cards.length) return
+
+  const reduceMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches
+
+  cards.forEach((card, index) => {
+    // 움직임을 줄이도록 설정한 사용자에게는 바로 앞면을 보여 줍니다.
+    if (reduceMotion) {
+      card.classList.add('is-revealed')
+      return
+    }
+
+    window.setTimeout(() => {
+      if (card.isConnected) {
+        card.classList.add('is-revealed')
+      }
+    }, 400 + index * 400)
+  })
+}
+
+function toggleFlipCard(picture) {
+  picture
+    .querySelector('.flip-inner')
+    ?.classList.toggle('is-revealed')
+}
+
+document.addEventListener('click', event => {
+  const picture = event.target.closest('.flip-card')
+
+  if (picture) toggleFlipCard(picture)
+})
+
+document.addEventListener('keydown', event => {
+  if (event.key !== 'Enter' && event.key !== ' ') return
+
+  const picture = event.target.closest?.('.flip-card')
+
+  if (!picture) return
+
+  event.preventDefault()
+  toggleFlipCard(picture)
+})

@@ -1661,3 +1661,59 @@ main {
     width: 100%;
   }
 }
+
+
+/* ==================================
+   결과 카드 뒤집기 (보너스: 마이크로 인터랙션)
+   뒷면으로 시작해 순서대로 앞면으로 뒤집히고,
+   클릭하면 다시 뒤집어 볼 수 있습니다.
+================================== */
+
+.flip-card {
+  perspective: 900px;
+  cursor: pointer;
+  /* Safari 에서 3D 회전 중 둥근 모서리가 깨지는 현상 방지 */
+  isolation: isolate;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.flip-card:focus-visible {
+  outline: 2px solid #f3d99b;
+  outline-offset: 3px;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateY(180deg);
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.flip-inner.is-revealed {
+  transform: rotateY(0deg);
+}
+
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-face-back {
+  transform: rotateY(180deg);
+}
+
+@media (hover: hover) {
+  .flip-card:hover .flip-inner.is-revealed {
+    transform: rotateY(0deg) scale(1.03);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner {
+    transition: none;
+  }
+}
