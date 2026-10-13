@@ -1,5 +1,6 @@
 
+# 로컬 개발용 (배포용 패키지는 루트 requirements.txt 에 있습니다)
+-r ../requirements.txt
 flask
 flask-cors
 python-dotenv
-openai
