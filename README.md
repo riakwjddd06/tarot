@@ -231,9 +231,9 @@ Claude와 대화하며 진단하고 해결한 오류입니다.
 | 데스크톱·모바일 반응형 | ✅ |
 | 카드 뒤집기 마이크로 인터랙션(보너스) | ✅ |
 | README (소개, 기술 스택, 실행·배포 방법, 배포 URL, 환경 변수) | ✅ |
-| 서비스 기획서 | `docs/서비스_기획서.md` |
+| 서비스 기획서 | ✅ `docs/서비스_기획서.md` |
 | AI 대화 로그 (ChatGPT, Claude) | ✅ 상단 |
-| 데스크톱·모바일·AI 동작 스크린샷 | `docs/screenshots/` |
+| 데스크톱·모바일·AI 동작 스크린샷 | ✅ `docs/screenshots/` |
 
 ## 13. 보안 체크리스트
 
@@ -244,7 +244,7 @@ Claude와 대화하며 진단하고 해결한 오류입니다.
 - [x] 사용자 입력은 `<user_question>` 태그로 감싸 지시로 해석되지 않게 했다.
 - [x] 질문 500자, 요청 본문 64KB로 입력 크기를 제한했다.
 - [x] AI 답변은 `escapeHTML`로 이스케이프해 출력한다.
-- [ ] 스크린샷과 대화 로그에 API 키·`.env` 내용이 보이지 않는지 제출 전 확인한다.
+- [x] 스크린샷과 대화 로그에 API 키·`.env` 내용이 보이지 않는지 제출 전 확인한다.
 
 ## 14. 샘플 실행
 
@@ -289,9 +289,13 @@ https://taro-cody.vercel.app 에서 촬영한 화면입니다.
 
 #### 모바일
 
-**7. 홈 / 8. 질문 입력**
+**7. 홈**
 
-<img src="docs/screenshots/07_mobile_home.png" width="240" alt="모바일 홈 화면"> <img src="docs/screenshots/08_mobile_question.png" width="240" alt="모바일 질문 입력 화면">
+<img src="docs/screenshots/07_mobile_home.png" width="360" alt="모바일 홈 화면">
+
+**8. 질문 입력**
+
+<img src="docs/screenshots/08_mobile_question.png" width="360" alt="모바일 질문 입력 화면">
 
 **9. 1차 AI 리딩 결과**
 
