@@ -73,7 +73,18 @@ cp backend/.env.example backend/.env   # 열어서 값 입력
 
 개발 중에는 프론트가 `http://127.0.0.1:5001/api/...`를, 배포 환경에서는 같은 도메인의 `/api/...`를 호출합니다.
 
-## 3. 의존성
+## 3. 기술 스택
+
+| 구분 | 기술 | 용도 |
+|---|---|---|
+| 프론트엔드 | HTML, CSS, JavaScript (프레임워크 없음) | 화면 구성, 스타일·반응형, 화면 전환과 `fetch` 호출 |
+| 개발·빌드 도구 | Vite | 로컬 개발 서버와 배포용 빌드 (화면 코드에는 관여하지 않음) |
+| 백엔드 | Python, Vercel Serverless Functions | `api/` 폴더의 엔드포인트에서 입력 검증과 AI 호출 |
+| AI | OpenAI 호환 Chat Completions API (`openai` SDK), 모델 `claude-opus-4-8` | 1차·2차 타로 리딩 생성 |
+| 배포 | GitHub, Vercel | main 브랜치에 push하면 자동 배포 |
+| 로컬 개발 서버 | Flask | 로컬에서 `api/_core.py`를 재사용해 실행 (배포에는 사용하지 않음) |
+
+### 의존성
 
 | 구분 | 패키지 | 용도 |
 |---|---|---|
@@ -228,12 +239,12 @@ Claude와 대화하며 진단하고 해결한 오류입니다.
 | 환경 변수로 키 관리, `.env` 미업로드 | ✅ |
 | GitHub 저장소와 커밋 이력 | ✅ |
 | Vercel 배포와 공개 URL | ✅ |
-| 데스크톱·모바일 반응형 | ✅ |
+| 데스크톱·태블릿·모바일 반응형 | ✅ |
 | 카드 뒤집기 마이크로 인터랙션(보너스) | ✅ |
 | README (소개, 기술 스택, 실행·배포 방법, 배포 URL, 환경 변수) | ✅ |
 | 서비스 기획서 | ✅ `docs/서비스_기획서.md` |
 | AI 대화 로그 (ChatGPT, Claude) | ✅ 상단 |
-| 데스크톱·모바일·AI 동작 스크린샷 | ✅ `docs/screenshots/` |
+| 데스크톱·태블릿·모바일·AI 동작 스크린샷 | ✅ `docs/screenshots/` |
 
 ## 13. 보안 체크리스트
 
@@ -300,6 +311,22 @@ https://taro-cody.vercel.app 에서 촬영한 화면입니다.
 **9. 1차 AI 리딩 결과**
 
 <img src="docs/screenshots/09_mobile_result1.png" width="240" alt="모바일 1차 결과 1"> <img src="docs/screenshots/09_mobile_result2.png" width="240" alt="모바일 1차 결과 2"> <img src="docs/screenshots/09_mobile_result3.png" width="240" alt="모바일 1차 결과 3">
+
+#### 태블릿
+
+Safari 반응형 디자인 모드에서 iPad Air 크기(820×1180)로 확인한 화면입니다.
+
+**10. 홈**
+
+<img src="docs/screenshots/10_tablet_home.png" width="300" alt="태블릿 홈 화면">
+
+**11. 질문 입력**
+
+<img src="docs/screenshots/11_tablet_question.png" width="300" alt="태블릿 질문 입력 화면">
+
+**12. 1차 AI 리딩 결과**
+
+<img src="docs/screenshots/12_tablet_result1.png" width="300" alt="태블릿 1차 결과 화면 1"> <img src="docs/screenshots/12_tablet_result2.png" width="300" alt="태블릿 1차 결과 화면 2"> 
 
 ## 15. 한계
 
