@@ -257,7 +257,45 @@ Claude와 대화하며 진단하고 해결한 오류입니다.
 | 2차 추가 질문 | 2027년 상반기 연애운은 어떤가요? |
 | 2차 결과 | 심층 해답·숨겨진 변수·실천과 변화·심층 종합 리딩 |
 
-실제 화면은 `docs/screenshots/`의 캡처를 참고하세요.
+### 화면 스크린샷
+
+https://taro-cody.vercel.app 에서 촬영한 화면입니다.
+
+#### 데스크톱
+
+**1. 홈**
+
+<img src="docs/screenshots/01_desktop_home.png" width="720" alt="데스크톱 홈 화면">
+
+**2. 질문 입력**
+
+<img src="docs/screenshots/02_desktop_question.png" width="720" alt="데스크톱 질문 입력 화면">
+
+**3. 카드 선택**
+
+<img src="docs/screenshots/03_desktop_cards1.png" width="360" alt="데스크톱 카드 선택 1"> <img src="docs/screenshots/03_desktop_cards2.png" width="360" alt="데스크톱 카드 선택 2">
+
+**4. 1차 AI 리딩 결과**
+
+<img src="docs/screenshots/04_desktop_result1.png" width="240" alt="1차 AI 리딩 결과 1"> <img src="docs/screenshots/04_desktop_result2.png" width="240" alt="1차 AI 리딩 결과 2"> <img src="docs/screenshots/04_desktop_result3.png" width="240" alt="1차 AI 리딩 결과 3">
+
+**5. 2차 심층 카드 선택**
+
+<img src="docs/screenshots/05_desktop_deep_cards1.png" width="360" alt="2차 카드 선택 1"> <img src="docs/screenshots/05_desktop_deep_cards2.png" width="360" alt="2차 카드 선택 2">
+
+**6. 2차 심층 리딩 결과**
+
+<img src="docs/screenshots/06_desktop_deep_result1.png" width="240" alt="2차 심층 리딩 결과 1"> <img src="docs/screenshots/06_desktop_deep_result2.png" width="240" alt="2차 심층 리딩 결과 2"> <img src="docs/screenshots/06_desktop_deep_result3.png" width="240" alt="2차 심층 리딩 결과 3">
+
+#### 모바일
+
+**7. 홈 / 8. 질문 입력**
+
+<img src="docs/screenshots/07_mobile_home.png" width="240" alt="모바일 홈 화면"> <img src="docs/screenshots/08_mobile_question.png" width="240" alt="모바일 질문 입력 화면">
+
+**9. 1차 AI 리딩 결과**
+
+<img src="docs/screenshots/09_mobile_result1.png" width="240" alt="모바일 1차 결과 1"> <img src="docs/screenshots/09_mobile_result2.png" width="240" alt="모바일 1차 결과 2"> <img src="docs/screenshots/09_mobile_result3.png" width="240" alt="모바일 1차 결과 3">
 
 ## 15. 한계
 
