@@ -283,3 +283,17 @@ export function getDeepReadingCards(selectedIds = []) {
 export function getCardById(id) {
   return tarotCards.find(card => card.id === id) ?? null
 }
+
+
+// 카드 배열을 무작위로 섞은 새 배열을 돌려줍니다. (피셔-예이츠 셔플)
+// 원본 배열은 바꾸지 않습니다.
+export function shuffleCards(cards) {
+  const shuffled = [...cards]
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+
+  return shuffled
+}

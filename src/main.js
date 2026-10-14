@@ -6,6 +6,7 @@ import {
   getFirstReadingCards,
   getCardById,
   tarotCardBackImage,
+  shuffleCards,
 } from './data/tarotCards.js'
 
 // ==================================
@@ -14,6 +15,9 @@ import {
 
 const app = document.querySelector('#app')
 
+// 화면에 깔리는 카드 순서 (리딩을 시작할 때마다 새로 섞음)
+let firstDeckOrder = shuffleCards(getFirstReadingCards())
+let deepDeckOrder = shuffleCards(getFirstReadingCards())
 
 
 const pageNames = {
@@ -113,6 +117,7 @@ function loadDeepReading() {
 
 function resetDeepReading() {
   deepSelectedCards = []
+  deepDeckOrder = shuffleCards(getFirstReadingCards())
   deepQuestion = ''
   sessionStorage.removeItem(DEEP_STORAGE_KEY)
 }
@@ -483,6 +488,7 @@ function loadSelectedCards() {
 
 function resetSelectedCards() {
   selectedCards = []
+  firstDeckOrder = shuffleCards(getFirstReadingCards())
   saveSelectedCards()
   resetAIReading()
 }
@@ -742,7 +748,7 @@ function createSelectedSlots() {
 // ==================================
 
 function createCardDeck() {
-  return getFirstReadingCards().map(card => {
+  return firstDeckOrder.map(card => {
     const selected = selectedCards.includes(card.id)
     const order = selectedCards.indexOf(card.id) + 1
 
@@ -1093,7 +1099,7 @@ function createResultPage() {
 
 function createDeepCardsPage() {
   // 1차 리딩에서 선택한 카드 제외
-  const remainingCards = getFirstReadingCards().filter(
+  const remainingCards = deepDeckOrder.filter(
     card => !selectedCards.includes(card.id)
   )
 
