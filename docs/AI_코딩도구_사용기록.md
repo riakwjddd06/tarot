@@ -11,7 +11,7 @@ AI가 만든 코드를 그대로 쓰지 않고, **무엇이 문제였는지 이�
 | 도구 | 용도 | 기록 위치 |
 |---|---|---|
 | ChatGPT | 서비스 기획, 프론트엔드·Flask 백엔드 구현, 단계별 안내 | 공유 링크: https://chatgpt.com/share/6acde122-30d8-83ee-802c-b67946a56578 |
-| Claude (Claude Code) | 프로젝트 점검, Vercel 서버리스 함수 전환, 프롬프트 개선, 오류 진단·수정, 배포, 문서화, 테스트 질문 설계 | 공개 공유 링크: (README의 "AI 대화 로그"에 적은 링크) · 파일: [claude_conversation_log.md](claude_conversation_log.md) |
+| Claude (Claude Code) | 프로젝트 점검, Vercel 서버리스 함수 전환, 프롬프트 개선, 오류 진단·수정, 배포, 문서화, 테스트 질문 설계 | 공유 링크: https://claude.ai/share/b9c14e9b-119c-4e86-a70d-1430aaffd3a9 |
 
 ## 2. 주요 과정
 
@@ -64,7 +64,7 @@ AI 도구로 프로젝트를 점검하면서 **미션 요구사항(Vercel Server
 
 ## 3. 증빙 첨부 체크
 
-- [ ] ChatGPT 대화 공유 링크가 시크릿 창에서 열리는지 확인
-- [ ] Claude 대화 공개 링크가 시크릿 창에서 열리는지 확인 (로그인을 요구하면 `claude_conversation_log.md`가 대체 자료)
-- [ ] 오류 수정 과정이 보이는 캡처 1장 이상
-- [ ] 캡처와 대화 로그에 API 키·`.env` 내용이 보이지 않음
+- [x] ChatGPT 대화 공유 링크가 시크릿 창에서 열리는지 확인
+- [x] Claude 대화 공유 링크가 시크릿 창에서 열리는지 확인
+- [x] 오류 수정 과정이 보이는 캡처 1장 이상
+- [x] 캡처와 대화 로그에 API 키·`.env` 내용이 보이지 않음
